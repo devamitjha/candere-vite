@@ -37,7 +37,7 @@ const ImageCarousel = ({item}) => {
     prevArrow: <NavPrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1279,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -46,6 +46,8 @@ const ImageCarousel = ({item}) => {
       {
         breakpoint: 600,
         settings: {
+          centerMode: true,
+          centerPadding: "30px",
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2
@@ -54,6 +56,8 @@ const ImageCarousel = ({item}) => {
       {
         breakpoint: 480,
         settings: {
+          centerMode: true,
+          centerPadding: "30px",
           slidesToShow: 1,
           slidesToScroll: 1
         }
@@ -104,7 +108,7 @@ const ImageCarousel = ({item}) => {
                             <span>({product.product_data?.total_rating})</span>
                           </div>
                         </div>                        
-                        <h4 className="text-gray-800 font-medium text-base my-1">
+                        <h4 className="text-gray-800 font-medium text-base my-1 truncate">
                           {name}
                         </h4>
                         <div className="text-sm text-cyan-600 font-medium">

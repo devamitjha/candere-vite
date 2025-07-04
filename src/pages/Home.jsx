@@ -25,21 +25,23 @@ const Collection = () => {
         title="Collections You'll Love" 
         subTitle="Let's take a glimpse at our featured collections before diving in!" 
       />
-      <div className="grid grid-cols-4 grid-rows-2 gap-4">
-        <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden">
-          <img src={EvilEye} alt="Evil Eye" className="w-full h-full object-cover" />
-        </div>        
-        <div className="rounded-2xl overflow-hidden">
-          <img src={HoneyBee} alt="HoneyBee" className="w-full h-full object-cover" />
-        </div>
-        <div className="rounded-2xl overflow-hidden">
-          <img src={Peacock} alt="Peacock" className="w-full h-full object-cover" />
-        </div>
-        <div className="rounded-2xl overflow-hidden">
-          <img src={Glo} alt="Glo" className="w-full h-full object-cover" />
-        </div>
-        <div className="rounded-2xl overflow-hidden">
-          <img src={Aruna} alt="Aruna" className="w-full h-full object-cover" />
+      <div className="w-full x-scroll-container hide-scrollbar">
+        <div className="flex lg:grid lg:grid-cols-4 lg:grid-rows-2 gap-4 whitespace-nowrap lg:px-4">
+          <div className="lg:col-span-2 lg:row-span-2 rounded-2xl overflow-hidden w-[60vw] lg:w-auto">
+            <img src={EvilEye} alt="Evil Eye" className="w-full h-full object-cover" />
+          </div>        
+          <div className="rounded-2xl overflow-hidden w-[60vw] lg:w-auto">
+            <img src={HoneyBee} alt="HoneyBee" className="w-full h-full object-cover" />
+          </div>
+          <div className="rounded-2xl overflow-hidden w-[60vw] lg:w-auto">
+            <img src={Peacock} alt="Peacock" className="w-full h-full object-cover" />
+          </div>
+          <div className="rounded-2xl overflow-hidden w-[60vw] lg:w-auto">
+            <img src={Glo} alt="Glo" className="w-full h-full object-cover" />
+          </div>
+          <div className="rounded-2xl overflow-hidden w-[60vw] lg:w-auto">
+            <img src={Aruna} alt="Aruna" className="w-full h-full object-cover" />
+          </div>
         </div>
       </div>
 
@@ -111,25 +113,27 @@ const Looks = () => {
         title="Shop the look"
         subTitle="Jewelry That Matches Your Style"
       />
-      <div className="w-full lg:w-[1200px] mx-auto flex flex-wrap justify-between gap-6 mt-8">
-        {looksData.map((look, index) => (
-          
-          <div key={index} className="flex flex-col items-center text-center transform transition-transform duration-300 hover:-translate-y-1">
-            <div
-              className="w-[160px] h-[160px] rounded-full overflow-hidden shadow-md"
-            >
-              <img
-                src={look.image}
-                alt={look.title}
-                className="w-full h-full object-cover"
-              />
+      <div className="w-full lg:max-w-[1200px] mx-auto mt-8 x-scroll-container hide-scrollbar">
+        <div className="x-scroll-wrapper lg:w-full lg:gap-6 lg:justify-between lg:items-center">
+          {looksData.map((look, index) => (
+            
+            <div key={index} className="flex flex-col items-center text-center transform transition-transform duration-300 hover:-translate-y-1">
+              <div
+                className="w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] rounded-full overflow-hidden shadow-md"
+              >
+                <img
+                  src={look.image}
+                  alt={look.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-md  text-black mt-4">
+                {look.title}
+              </h3>
             </div>
-            <h3 className="text-md  text-black mt-4">
-              {look.title}
-            </h3>
+          ))}
           </div>
-        ))}
-      </div>
+        </div>
     </div>
   );
 };
