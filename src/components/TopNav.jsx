@@ -7,13 +7,13 @@ import { Heart, Search, User, ShoppingCart, AlignLeft} from 'lucide-react';
 import Logo from "../assets/image/logo.png"
 
 
-const TopNav = () => {
-    const [count, setCount] = useState(1)
+const TopNav = ({openMenu}) => {
+    const [count, setCount] = useState(1);
     return (
     <>
         <div className="px-2 lg:px-5 flex justify-between w-full gap-4">
             <div className="flex justify-start w-[48%] lg:w-[20%]">  
-                <div className="w-12 lg:w-14 h-12 lg:h-14 flex justify-center items-center mr-2 xl:hidden"><AlignLeft /></div>  
+                <div className="w-12 lg:w-14 h-12 lg:h-14 flex justify-center items-center mr-2 xl:hidden" onClick={openMenu}><AlignLeft /></div>  
                 <Link className="w-12 lg:w-13 h-12 lg:h-13 flex justify-center items-center overflow-hidden p-2 lg:p-0" to="/">
                     <img src={Logo} alt="candere" className="w-full h-full object-cover block"/>        
                 </Link>
