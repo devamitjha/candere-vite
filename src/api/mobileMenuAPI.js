@@ -206,6 +206,8 @@ const MobileMenuAPI = [
     type: "category",
     category: "Accessories",
     identifier: "Accessories",
+    redirect: "yes",
+    onlyCategory: "yes",
     subCat: [
       {
         title: "Nose pins",

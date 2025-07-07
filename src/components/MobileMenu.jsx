@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { X, Plus, Minus, ChevronRight } from "lucide-react";
 import { FeaturedMenu, OtherMenus } from "@/api/mobileMenuAPI";
 import { Link, useLocation } from "react-router";
+import clsx from 'clsx';
 
 const MobileMenu = ({ isOpen, toggleSidebar }) => {
   const location = useLocation();
@@ -54,12 +55,12 @@ const MobileMenu = ({ isOpen, toggleSidebar }) => {
     const isExpanded = expanded === index;
 
     return (
-      <div key={`cat-${index}`}>
+      <div key={`cat-${index}`} className="menu-container">
         <button
           onClick={() =>
             hasSubCat ? setExpanded(isExpanded ? null : index) : filterCategory(item.filter_category)
           }
-          className="flex justify-between items-center w-full p-4 text-left"
+          className="flex justify-between items-center w-full text-left py-4 px-4"
         >
           <span className="text-sm">{item.category}</span>
           {hasSubCat ? (
@@ -71,10 +72,13 @@ const MobileMenu = ({ isOpen, toggleSidebar }) => {
 
        {hasSubCat && <div
           className={`transition-all duration-300 overflow-hidden ${
-            isExpanded ? "max-h-[500px]" : "max-h-0"
+            isExpanded ? "max-h-[750px]" : "max-h-0"
           }`}
         >
-          <div className="pl-6 pb-2 space-y-2">
+          <div className={clsx({
+            'grid grid-cols-2 gap-4 bg-muted px-4 py-2': isRedirectOnly,
+            'py-2 space-y-2 px-4 bg-muted': !isRedirectOnly,
+          })}>
             {hasSubCat &&
               item.subCat.map((sub, i) =>
                 isRedirectOnly ? (
@@ -84,16 +88,25 @@ const MobileMenu = ({ isOpen, toggleSidebar }) => {
                     onClick={toggleSidebar}
                     className="flex justify-between items-center text-sm text-gray-700 hover:text-blue-600"
                   >
-                    <span>{sub.title}</span>
-                    <ChevronRight size={18} />
+                    <div className="flex justify-start items-center my-2">
+                      <div className="w-15 h-15 rounded-lg overflow-hidden">
+                        <img src={sub.image} alt={ sub.title} className="w-[100%] h-[100%] object-contain aspect-square" />
+                      </div>
+                      <span className="text-xs ml-4">{sub.title}</span>
+                    </div>
                   </Link>
                 ) : (
                   <div
                     key={`subcat-${i}`}
                     onClick={() => filterCategory(sub.filter_category)}
-                    className="flex justify-between items-center text-sm text-gray-700 hover:text-blue-600 cursor-pointer"
+                    className="flex justify-between items-center text-sm text-gray-700 hover:text-black cursor-pointer"
                   >
-                    <span>{sub.title}</span>
+                    <div className="flex justify-start items-center my-2">
+                      <div className="w-15 h-15 rounded-lg overflow-hidden">
+                        <img src={sub.image} alt={ sub.title} className="w-[100%] h-[100%] object-contain aspect-square" />
+                      </div>
+                      <span className="text-xs ml-4">{sub.title}</span>
+                    </div>
                     <ChevronRight size={18} />
                   </div>
                 )
@@ -129,9 +142,9 @@ const MobileMenu = ({ isOpen, toggleSidebar }) => {
         <div className="overflow-y-auto h-full pb-20">
           {/* === Featured Section === */}
           <div className="mt-4">
-            <h2 className="font-body text-lg px-4 mb-4 uppercase">Featured</h2>
+            <h2 className="font-body text-sm px-4 mb-4 uppercase text-primary font-semibold">Featured</h2>
             <div className="w-full x-scroll-container hide-scrollbar">
-              <div className="x-scroll-wrapper flex gap-3 px-4 overflow-x-auto">
+              <div className="x-scroll-wrapper">
                 {FeaturedMenu.items.map((feature, i) => (
                   <Link
                     key={`featured-${i}`}
@@ -143,7 +156,7 @@ const MobileMenu = ({ isOpen, toggleSidebar }) => {
                       alt={feature.title}
                       className="w-[112px] object-cover rounded-lg"
                     />
-                    <span className="text-sm text-gray-500 my-2 inline-block">
+                    <span className="text-xs text-gray-700 my-2 inline-block">
                       {feature.title}
                     </span>
                   </Link>
@@ -153,7 +166,7 @@ const MobileMenu = ({ isOpen, toggleSidebar }) => {
           </div>
 
           {/* === Category Section === */}
-          <h2 className="font-body text-lg px-4 my-4 uppercase">Shop For</h2>
+          <h2 className="font-body text-sm px-4 my-4 uppercase text-primary font-semibold">Shop For</h2>
           {OtherMenus.map((item, index) => {
             if (item.type === "category") return renderCategory(item, index);
             if (item.type === "banner") {
