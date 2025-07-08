@@ -17,6 +17,8 @@ import Kids from '@/assets/image/looks/Kids.jpg';
 import Gold from '@/assets/image/looks/Gold.jpg';
 import HomeVide from "@/assets/videos/hero-video.mp4";
 import CompleteLooks from '@/components/CompleteLooks';
+import useWindowSize from '@/hooks/useWindowSize';
+import HeroSliderMobile from '@/components/HeroSliderMobile';
 
 
 const Collection = () => {
@@ -161,9 +163,11 @@ const VideoSection = () => {
 
 
 const Home = () => {
+  const { width } = useWindowSize();
+  const HomepageSlider = width > 1280 ? <HeroSlider /> : <HeroSliderMobile />;
   return (
     <section className="w-full">
-      <HeroSlider />
+      {HomepageSlider}
       <Services />
       <MarqueeBar />
       <Looks/>
