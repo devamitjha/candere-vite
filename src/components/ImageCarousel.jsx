@@ -50,7 +50,8 @@ const ImageCarousel = ({item}) => {
           centerPadding: "30px",
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
+          initialSlide: 2,
+          arrows: false,
         }
       },
       {
@@ -59,7 +60,8 @@ const ImageCarousel = ({item}) => {
           centerMode: true,
           centerPadding: "30px",
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          arrows: false,
         }
       }
     ]
