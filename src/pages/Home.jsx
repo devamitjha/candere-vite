@@ -15,7 +15,8 @@ import ForHer from '@/assets/image/looks/Gift-For-Her.jpg';
 import ForHim from '@/assets/image/looks/Him.jpg';
 import Kids from '@/assets/image/looks/Kids.jpg';
 import Gold from '@/assets/image/looks/Gold.jpg';
-import HomeVide from "@/assets/videos/hero-video.mp4"
+import HomeVide from "@/assets/videos/hero-video.mp4";
+import CompleteLooks from '@/components/CompleteLooks';
 
 
 const Collection = () => {
@@ -61,17 +62,7 @@ const TrendingItem = () => {
   )
 }
 
-const FeaturedProduct = () => {
-  return (
-    <div className="container mx-auto">
-    <MainTitle
-        title="Featured Products" 
-        subTitle="Handpicked Selections Just for You" 
-    />
-      <ImageCarousel item="4"/>
-    </div>
-  )
-}
+
 
 const looksData = [
   {
@@ -179,7 +170,7 @@ const Home = () => {
       <Collection />
       <TrendingItem />
       <VideoSection/>
-      <FeaturedProduct />
+      <CompleteLooks/>
     </section>
   )
 }
