@@ -19,6 +19,7 @@ import HomeVide from "@/assets/videos/hero-video.mp4";
 import CompleteLooks from '@/components/CompleteLooks';
 import useWindowSize from '@/hooks/useWindowSize';
 import HeroSliderMobile from '@/components/HeroSliderMobile';
+import JewelryInMotion from '@/components/JewelryInMotion';
 
 
 const Collection = () => {
@@ -131,35 +132,6 @@ const Looks = () => {
   );
 };
 
-const VideoSection = () => {
-  return (
-    <section className="w-full">
-      <MainTitle
-        title="Jewelry in Motion"
-        subTitle="See the Sparkle, Shop the Magic"
-      />
-       <div className="w-full h-[40vw] overflow-hidden relative">     
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src={HomeVide} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <div className="text-white text-center px-4">
-              <h1 className="text-3xl md:text-5xl font-bold">Discover Sparkle</h1>
-              <p className="mt-4 text-lg">Jewelry that moves with you</p>
-            </div>
-          </div>
-      </div>
-    </section>
-   
-  );
-};
 
 
 const Home = () => {
@@ -173,7 +145,7 @@ const Home = () => {
       <Looks/>
       <Collection />
       <TrendingItem />
-      <VideoSection/>
+      <JewelryInMotion/>
       <CompleteLooks/>
     </section>
   )
