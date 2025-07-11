@@ -1,43 +1,42 @@
-import CiraAntiqueNecklaceSet from "@/assets/videos/Cira-Antique-Necklace-Set.mp4";
-import DrisanaAntiqueChokerSet from "@/assets/videos/Drisana-Antique-Choker-Set.mp4";
-import NiladriAntiqueNecklaceSet from "@/assets/videos/Niladri-Antique-Necklace-Set.mp4";
-import ParagAntiqueCoinNecklaceSet from "@/assets/videos/Parag-Antique-Coin-Necklace-Set.mp4";
+import RoyalCharmNecklaceVideo from "@/assets/videos/RoyalCharmNecklace.mp4";
+import RegalRadianceChokerVideo from "@/assets/videos/RegalRadianceChoker.mp4";
+import TimelessGraceNecklaceVideo from "@/assets/videos/TimelessGraceNecklace.mp4";
+import HeritageCoinNecklaceVideo from "@/assets/videos/HeritageCoinNecklace.mp4";
 
-import CiraAntiqueNecklace from "@/assets/videos/Cira-Antique-Necklace-Set.jpg";
-import DrisanaAntiqueChoker from "@/assets/videos/Drisana-Antique-Choker-Set.jpg";
-import NiladriAntiqueNecklace from "@/assets/videos/Niladri-Antique-Necklace-Set.jpg";
-import ParagAntiqueCoinNecklace from "@/assets/videos/Parag-Antique-Coin-Necklace-Set.jpg"; 
-        
+import RoyalCharmNecklaceImage from "@/assets/videos/RoyalCharmNecklace.jpg";
+import RegalRadianceChokerImage from "@/assets/videos/RegalRadianceChoker.jpg";
+import TimelessGraceNecklaceImage from "@/assets/videos/TimelessGraceNecklace.jpg";
+import HeritageCoinNecklaceImage from "@/assets/videos/HeritageCoinNecklace.jpg";
 
 const CuratedVideo = [
   {
-    title: "Cira Antique Necklace Set",
-    videoUrl: CiraAntiqueNecklaceSet,
-    imageUrl:CiraAntiqueNecklace,
+    title: "Royal Charm Necklace Set",
+    videoUrl: RoyalCharmNecklaceVideo,
+    imageUrl: RoyalCharmNecklaceImage,
     price: 24999,
     crossPrice: 31999
   },
   {
-    title: "Drisana Antique Choker Set",
-    videoUrl: DrisanaAntiqueChokerSet,
-    imageUrl:DrisanaAntiqueChoker,
+    title: "Regal Radiance Choker Set",
+    videoUrl: RegalRadianceChokerVideo,
+    imageUrl: RegalRadianceChokerImage,
     price: 18999,
     crossPrice: 24999
   },
   {
-    title: "Niladri Antique Necklace Set",
-    videoUrl: NiladriAntiqueNecklaceSet,
-    imageUrl: NiladriAntiqueNecklace,
+    title: "Timeless Grace Necklace Set",
+    videoUrl: TimelessGraceNecklaceVideo,
+    imageUrl: TimelessGraceNecklaceImage,
     price: 27999,
     crossPrice: 34999
   },
   {
-    title: "Parag Antique Coin Necklace Set",
-    videoUrl:ParagAntiqueCoinNecklaceSet,
-    imageUrl:ParagAntiqueCoinNecklace,
+    title: "Heritage Coin Necklace Set",
+    videoUrl: HeritageCoinNecklaceVideo,
+    imageUrl: HeritageCoinNecklaceImage,
     price: 20999,
     crossPrice: 28999
   }
 ];
 
-export default CuratedVideo
+export default CuratedVideo;
