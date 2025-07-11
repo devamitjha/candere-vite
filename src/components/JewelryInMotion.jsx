@@ -1,26 +1,36 @@
 import React, { useRef, useState, useEffect } from "react";
 import CuratedVideo from "@/api/video";
 import MainTitle from "./MainTitle";
+import clsx from 'clsx';
+import useWindowSize from '@/hooks/useWindowSize';
 
 const JewelryInMotion = () => {
+  const { width } = useWindowSize();
   return (
-    <section className="container mx-auto bg-white">
+    <section className="w-full lg:max-w-[1535px] mx-auto bg-white">
         <MainTitle
             title="Jewelry in Motion"
             subTitle="Curated specially for you"
         />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 w-full px-4">
-            {CuratedVideo.map((item, idx) => (
-            <VideoCard
-                key={idx}
-                title={item.title}
-                videoUrl={item.videoUrl}
-                poster={item.imageUrl}
-                price={item.price}
-                crossPrice={item.crossPrice}
-            />
-            ))}
+        <div className={clsx({
+          'w-full': width >= 1280,
+          'w-full x-scroll-container hide-scrollbar py-8': width <= 1279,
+        })}>
+          <div className={clsx({
+            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 w-full px-4': width >= 1280,
+            'x-scroll-wrapper lg:px-4': width <= 1279,
+          })}>
+              {CuratedVideo.map((item, idx) => (
+              <VideoCard
+                  key={idx}
+                  title={item.title}
+                  videoUrl={item.videoUrl}
+                  poster={item.imageUrl}
+                  price={item.price}
+                  crossPrice={item.crossPrice}
+              />
+              ))}
+          </div>
         </div>
     </section>
   );
