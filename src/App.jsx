@@ -32,7 +32,7 @@ function App() {
         { path: 'jewellery/:catname', element: <ProductCategory /> },
 
         // Product details
-        { path: 'product/:id', element: <Product /> },
+        { path: '/:id', element: <Product /> },
 
         // Checkout
         {
