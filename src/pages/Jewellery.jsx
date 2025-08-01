@@ -39,6 +39,10 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
+import { Badge } from "@/components/ui/badge"
+import FilterSidebar from '@/components/FilterSidebar';
+import {RingSizeFilter, PriceFilter, DiscountsFilter, ProductTypeFilter} from '@/api/FilterData';
+import { Separator } from "@/components/ui/separator";
 
 const FilterBottomSheet = ({ open, setOpen, type }) => {
   const getTitle = () => {
@@ -125,7 +129,7 @@ const Jewellery = () => {
         </>
      }
       {width <= 1023 &&  
-        <div className="filter-list my-4">
+        <div className="filter-list my-6">
             <Swiper
                slidesPerView={'auto'}
                spaceBetween={15}
@@ -148,10 +152,24 @@ const Jewellery = () => {
         </div>        
       }
 
-      <div className="product-list-section block lg:grid lg:grid-cols-[25%_75%] px-5 lg:px-20">
-          <div className="filter-sidebar block">
-            <StickyBox offsetTop={20} offsetBottom={20}>test</StickyBox>
-          </div>
+      <div className="product-list-section block lg:grid lg:grid-cols-[20%_80%] px-5 lg:px-20">
+         {
+          width > 1023 &&  
+            <div className="filter-sidebar block pe-10">
+              <div className="pb-4 flex justify-between items-center">
+                <div className="uppercase text-sm">
+                  Filters
+                  <Badge className="h-5 min-w-5 rounded-full px-1 font-mono tabular-nums ml-2" variant="secondary">1</Badge>
+                </div>
+                <div className="uppercase text-sm cursor-pointer text-red-500">clear All</div>
+              </div>
+            
+                  <StickyBox offsetTop={20} offsetBottom={5}>
+                    <Separator className="my-2" />
+                    <FilterSidebar filterItem={[RingSizeFilter, PriceFilter, DiscountsFilter, ProductTypeFilter]}/>
+                  </StickyBox>
+            </div>
+          }           
         <div className="product-list block">
           {
             width > 1023 &&          
@@ -194,7 +212,7 @@ const Jewellery = () => {
         {width <= 1023 && 
           <div className="fixed bottom-0 left-0 w-full bg-black flex items-center justify-between text-white px-2">
             <div className="h-14 flex justify-center items-center text-white">
-              <Button variant="none" onClick={() => { setActiveType('categories'); setOpen(true); }}>
+              <Button variant="none" onClick={() => {"menu will be open"}}>
                 <ChartNoAxesGantt /> <span className="text-[12px] uppercase">Categories</span>
               </Button>
             </div>
