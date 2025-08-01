@@ -201,3 +201,12 @@
 .x-scroll-wrapper{
   @apply flex  whitespace-nowrap gap-4
 }
+
+.filter-list{
+      .swiper {
+          padding:0 15px;
+      }
+      .swiper-slide {
+          width:auto;
+        }  
+  }
